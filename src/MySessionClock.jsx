@@ -8,28 +8,23 @@ class TimeControl extends React.Component {
         super(props);
     }
     render() {
-        return ( <
-            div className = "sessionController" >
-            <
-            div className = "controllerName" > { this.props.controlName } <
-            /div> <
-            button className = "buttonDown"
-            onClick = { this.props.onClick }
-            value = "-" >
-            <
-            FaCaretDown / >
-            <
-            /button> <
-            div className = "controllerTitle" > { this.props.control } <
-            /div> <
-            button className = "buttonUp"
-            onClick = { this.props.onClick }
-            value = "+" >
-            <
-            FaCaretUp / >
-            <
-            /button> <
-            /div>
+        return ( 
+            <div className = "sessionController" >
+                <div className = "controllerName" > { this.props.controlName }
+                </div>
+                <button className = "buttonDown"
+                    onClick = { this.props.onClick }
+                    value = "-" >
+                    <FaCaretDown / >
+                </button>
+                <div className = "controllerTitle" > { this.props.control }
+                </div>
+                <button className = "buttonUp"
+                    onClick = { this.props.onClick }
+                    value = "+" >
+                    <FaCaretUp / >
+                </button>
+            </div>
         )
     }
 }
@@ -189,66 +184,59 @@ class Timer extends React.Component {
         this.state.intervalID.clear();
     }
     render() {
-        return ( <
-            div className = "app" >
-            <
-            div className = "appName" >
-            Session Clock <
-            /div> <
-            div className = "controllers" >
-            <
-            TimeControl controlName = "Break Length"
-            onClick = { this.setBrkTime }
-            control = { this.clockify(this.state.sessionBreak) }
-            /> <
-            TimeControl controlName = "Current Session Length"
-            onClick = { this.setSessTime }
-            control = { this.clockify(this.state.sessionLength) }
-            /> <
-            TimeControl controlName = "Change on next session"
-            onClick = { this.setAltTime }
-            control = { this.clockify(this.state.sessionAlter) }
-            /> <
-            /div> <
-            div id = "mainClock" >
-            <
-            div >
-            <
-            div className = "clockTitle" > { this.state.clockType } <
-            /div> <
-            /div> <
-            div className = "countdown"
-            style = { this.state.timeColor } > { this.clockify(this.state.time) } <
-            /div> <
-            /div> <
-            div id = "mainClockControl" >
-            <
-            FaPlay className = "buttonControl"
-            id = "play"
-            onClick = { this.launch }
-            /> <
-            FaPause className = "buttonControl"
-            id = "pause"
-            onClick = { this.clockStateControl }
-            /> <
-            FaRedoAlt className = "buttonControl"
-            id = "reset"
-            onClick = { this.reset }
-            /> <
-            /div> <
-            div className = "madeby" > Made by < a className = "madeLink"
-            title = "Go to Github!"
-            target = "_blank"
-            rel = "noopener noreferrer"
-            href = "https://github.com/Studnia8" > Michał Studnicki < /a> <
-            /div> <
-            audio id = "alarm"
-            preload = "auto"
-            src = "https://goo.gl/65cBl1"
-            ref = {
-                (audio) => { this.alarmSound = audio; } }
-            /> <
-            /div>
+        return ( <div className = "app" >
+            <div className = "appName" >
+                Session Clock
+            </div>
+            <div className = "controllers" >
+                <TimeControl controlName = "Break Length"
+                onClick = { this.setBrkTime }
+                control = { this.clockify(this.state.sessionBreak) }
+                />
+                <TimeControl controlName = "Current Session Length"
+                onClick = { this.setSessTime }
+                control = { this.clockify(this.state.sessionLength) }
+                />
+                <TimeControl controlName = "Change on next session"
+                onClick = { this.setAltTime }
+                control = { this.clockify(this.state.sessionAlter) }
+                />
+            </div>
+            <div id = "mainClock" >
+                <div >
+                    <div className = "clockTitle" > { this.state.clockType }
+                    </div>
+                </div>
+            <div className = "countdown"
+                style = { this.state.timeColor } > { this.clockify(this.state.time) }
+            </div>
+        </div>
+        <div id = "mainClockControl" >
+            <FaPlay className = "buttonControl"
+                id = "play"
+                onClick = { this.launch }
+            />
+            <FaPause className = "buttonControl"
+                id = "pause"
+                onClick = { this.clockStateControl }
+            />
+            <FaRedoAlt className = "buttonControl"
+                id = "reset"
+                onClick = { this.reset }
+            />
+            </div>
+            <div className = "madeby" > Made by < a className = "madeLink"
+                title = "Go to Github!"
+                target = "_blank"
+                rel = "noopener noreferrer"
+                href = "https://github.com/Studnia8" > Michał Studnicki </a>
+            </div>
+            <audio id = "alarm"
+                preload = "auto"
+                src = "https://www.soundsnap.com/old_alarm_clock_ring_2_wav"
+                ref = {(audio) => { this.alarmSound = audio; } }
+            />
+            </div>
         )
     }
 }
