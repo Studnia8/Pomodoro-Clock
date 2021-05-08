@@ -132,7 +132,7 @@ class Timer extends React.Component {
     clockControl() {
         let clocktime = this.state.time;
         this.warning(clocktime);
-        this.alarm(clocktime);
+        //this.alarm(clocktime);
         if (clocktime < 0) {
             if (this.state.clockType === 'Session') {
                 this.clockSwitch(this.state.sessionBreak, 'Break')
@@ -165,7 +165,7 @@ class Timer extends React.Component {
     }
     alarm() {
         if (this.state.time === 0) {
-            this.alarmSound.play()
+            //this.alarmSound.play()
         }
     }
     reset() {
